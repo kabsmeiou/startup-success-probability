@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Form</title>
+    <link 
+      href="{{url_for('static', path='/css/styles.css')}}" 
+      rel="stylesheet" 
+    />
+</head>
+<body>
+    <h1 class='text-xl'>Startup Success Predictor</h1>
+    <form action="/predict/" method="post">
+        <label for="name">Project Name:</label>
+        <input class='border-2' type="text" id="name" name="name" required><br><br>
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+            <option value="film-video-photography">Film, Video & Photography</option>
+            <option value="technology">Technology</option>
+            <option value="culture-art">Culture & Art</option>
+            <option value="education">Education</option>
+            <option value="environment">Environment</option>
+            <option value="music">Music</option>
+            <option value="health-beauty">Health & Beauty</option>
+            <option value="design">Design</option>
+            <option value="publishing">Publishing</option>
+            <option value="food-eating-drinking">Food, Eating & Drinking</option>
+            <option value="sports">Sports</option>
+            <option value="animals">Animals</option>
+            <option value="fashion">Fashion</option>
+            <option value="social_responsibility">Social Responsibility</option>
+            <option value="dance-performance">Dance & Performance</option>
+            <option value="tourism">Tourism</option>
+            <option value="other">Other</option>
+        </select><br><br>
+        <label for="has_website">Has Website:</label>
+        <select id="has_website" name="has_website" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+        <label for="funding_type">Funding Type:</label>
+        <select id="funding_type" name="funding_type" required>
+            <option value="prize">Prize</option>
+            <option value="donation">Donation</option>
+        </select><br><br>
+        <label for="funding_method">Funding Method:</label>
+        <select id="funding_method" name="funding_method" required>
+            <option value="all-or-nothing">All or Nothing</option>
+            <option value="keep-it-all">Keep it All</option>
+        </select><br><br>
+        <label for="project_supported">Number of Supported Projects:</label>
+        <input class='border-2' type="number" id="project_supported" name="project_supported" required><br><br>
+        <label for="project_owned">Number of Owned Projects:</label>
+        <input class='border-2' type="number" id="project_owned" name="project_owned" required><br><br>
+        <label for="number_of_teams">Number of Teams:</label>
+        <input class='border-2' type="number" id="number_of_teams" name="number_of_teams" required><br><br>
+        <label for="project_duration">Project Duration (days):</label>
+        <input class='border-2' type="number" id="project_duration" name="project_duration" required><br><br>
+        <label for="has_promo_video">Has Promo Video:</label>
+        <select id="has_promo_video" name="has_promo_video" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+        <label for="promo_video_length">Promo Video Length (seconds):</label>
+        <input class='border-2' type="number" id="promo_video_length" name="promo_video_length" required><br><br>
+        <label for="image_count">Number of Images:</label>
+        <input class='border-2' type="number" id="image_count" name="image_count" required><br><br>
+        <label for="has_faq">Has FAQ:</label>
+        <select id="has_faq" name="has_faq" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+        <label for="updates">Number of Updates:</label>
+        <input class='border-2' type="number" id="updates" name="updates" required><br><br>
+        <label for="comments">Number of Comments:</label>
+        <input class='border-2' type="number" id="comments" name="comments" required><br><br>
+        <label for="reward_count">Number of Rewards:</label>
+        <input class='border-2' type="number" id="reward_count" name="reward_count" required><br><br>
+        <label for="project_member_count">Number of Project Members:</label>
+        <input class='border-2' type="number" id="project_member_count" name="project_member_count" required><br><br>
+        <label for="has_social_media">Has Social Media:</label>
+        <select id="has_social_media" name="has_social_media" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+        <label for="social_media_count">Number of Social Media:</label>
+        <input class='border-2' type="number" id="social_media_count" name="social_media_count" required><br><br>
+        <label for="social_media_followers">Number of Social Media Followers:</label>
+        <input class='border-2' type="number" id="social_media_followers" name="social_media_followers" required><br><br>
+        <label for="total_tags">Total Tags:</label>
+        <input class='border-2' type="number" id="total_tags" name="total_tags" required><br><br>
+        <label for="target_amount">Target Amount:</label>
+        <input class='border-2' type="number" id="target_amount" name="target_amount" required><br><br>
+        <label for="backer_count">Number of Backers:</label>
+        <input class='border-2' type="number" id="backer_count" name="backer_count" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    {% if message %}
+    <div class="message">
+        <p>{{ message }}</p>
+    </div>
+    {% endif %}
+    {% if DEBUG %}
+    {{ hotreload.script(url_for('hot-reload')) | safe }}
+    {% endif %}
+</body>
+</html>
