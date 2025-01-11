@@ -122,7 +122,8 @@ df_test.reset_index(inplace=True, drop=True)
 # these are columns that did not affect the target variable or has been opted out due to the creator's decision
 to_drop = ['project_end_date', 'project_start_date', 'launch_year', 'project_owner', 
     'owner_location', 'project_name', 'collected_amount', 'project_owner_gender', 
-    'subscribed_projects', 'target_amount_percentage', 'backer_count', 'success_status'
+    'subscribed_projects', 'target_amount_percentage', 'backer_count', 'success_status',
+    'project_region', 'platform_name',
 ]
 # just to experiment, I am dropping the target_amount_percentage that contributes so much to the result
 
@@ -157,7 +158,7 @@ model = XGBClassifier (
     objective='binary:logistic', 
     random_state=42,
     n_estimators=300,
-    learning_rate=0.2421,
+    learning_rate=0.5263,
     tree_method='hist',
     callbacks=[early_stop],
     max_depth=2
