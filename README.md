@@ -31,7 +31,7 @@ cd startup-success-probability
 ### Creating the environment
 Create a virtual environment with:
 ```
-python -m venv .venv
+python3 -m venv .venv
 ```
 
 Upon creating the environment, activate it with
@@ -49,12 +49,12 @@ activate
 or\
 **Unix-based systems**
 ```
-source .venv/bin/Activate
+source .venv/bin/activate
 ```
 
 Install the dependencies by
 ```
-pip install -r requirements
+pip install -r requirements.txt
 ```
 
 ### Alternative: Using UV
@@ -85,7 +85,7 @@ Then running *test.py* that sends a **POST** request to the service deployed
 ```
 python3 test.py
 ```
-Feel free to modify the dictionary in the *test.py* file to see how the probability of success changes.
+Feel free to modify the dictionary in the *test.py* file to see how the probability of success changes or access the link shown and use the web app.
 
 ### Running the app with Docker
 For this to work, make sure you have Docker installed on your system and build the project with the following command
