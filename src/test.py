@@ -1,5 +1,5 @@
 import pickle
-import numpy as np
+import requests
 
 model_file=f'startup-success-predictor.bin'
 
@@ -29,8 +29,8 @@ test_data = {'mass_funding_type': 'prize',
  'target_amount': 40000,
  'backer_count': 150
 }
-test_data['log_backer_count'] = np.log1p(test_data['backer_count'])
-del test_data['backer_count']
-X = dv.transform(test_data)
-probability_of_success = model.predict_proba(X)[:,1].round(4)[0] * 100
-print(f"Success probability of the project: {probability_of_success:.2f}")
+
+url = "http://localhost:8000/test/"
+
+response = requests.post(url, json=test_data)
+print(response.json())

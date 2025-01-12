@@ -6,24 +6,14 @@
 # Determining the success probabilty of a startup project using determining factors such as target amount, backer count, project member count, and etc. This is to help startup teams to reassess their strategies especially in crowdfunding as well as take care of the important variables that may define the project's success.
 # ```
 
-# In[1]:
-
-
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction import DictVectorizer
-from sklearn.feature_selection import mutual_info_classif
-from sklearn.metrics import mutual_info_score, roc_auc_score, accuracy_score, f1_score, recall_score, precision_recall_curve, log_loss, precision_score, auc, roc_curve
+from sklearn.metrics import roc_auc_score, accuracy_score, f1_score, recall_score, log_loss, precision_score
 from scipy.stats.mstats import winsorize
-from statsmodels.stats.outliers_influence import variance_inflation_factor
-from tqdm import tqdm
-from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
 import xgboost as xgb
-from sklearn.linear_model import LogisticRegression
 from imblearn.over_sampling import SMOTE
 import pickle
 
@@ -57,6 +47,9 @@ df['mass_funding_type'] = df['mass_funding_type'].map({'ödül': 'prize', 'bağ�
 
 # success status
 df['success_status'] = df['success_status'].map({'başarısız': 0, 'başarılı': 1})
+
+# whether the project has FAQ
+df['faq'] = np.where(df['faq'] > 0, 1, 0)
 
 # project category
 df['project_category'] = df['project_category'].map({
