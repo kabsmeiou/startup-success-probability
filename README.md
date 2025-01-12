@@ -11,7 +11,7 @@ Provenance: This dataset contains data on crowdfunding campaigns in Turkey. The 
 ## About the project
 
 **Package Manager:** uv: Python packaging in Rust\
-**Virtual Environment:** uv venv\
+**Virtual Environment:** uv virtual environment\
 **Web Deployment:** FastAPI\
 **Container:** Docker\
 **Cloud Service:** N/A
